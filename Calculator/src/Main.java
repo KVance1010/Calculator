@@ -249,10 +249,10 @@ public class Main {
 			for (int i = 0; i < 3; ++i) {
 				System.out.println();
 			}
-			System.out.print("Please enter your first whole number to add:  ");
+			System.out.print("Please enter your first whole number to subtract:  ");
 			numOne = scnr.nextInt();
 			System.out.println();
-			System.out.print("Please enter your second whole number to add:  ");
+			System.out.print("Please enter your second whole number to subtract:  ");
 			numTwo = scnr.nextInt();
 			System.out.println();
 			System.out.println("Problem");
@@ -374,10 +374,10 @@ public class Main {
 			for (int i = 0; i < 3; ++i) {
 				System.out.println();
 			}
-			System.out.print("Please enter your first whole number to add:  ");
+			System.out.print("Please enter your first whole number to multiply:  ");
 			numOne = scnr.nextInt();
 			System.out.println();
-			System.out.print("Please enter your second whole number to add:  ");
+			System.out.print("Please enter your second whole number to multiply:  ");
 			numTwo = scnr.nextInt();
 			System.out.println();
 			System.out.println("Problem");
@@ -503,10 +503,10 @@ public class Main {
 			for (int i = 0; i < 3; ++i) {
 				System.out.println();
 			}
-			System.out.print("Please enter your first whole number to add:  ");
+			System.out.print("Please enter your first whole number to divide:  ");
 			numOne = scnr.nextInt();
 			System.out.println();
-			System.out.print("Please enter your second whole number to add:  ");
+			System.out.print("Please enter your second whole number to divide:  ");
 			numTwo = scnr.nextInt();
 			System.out.println();
 			System.out.println("Problem");

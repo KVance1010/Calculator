@@ -2,658 +2,610 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Main {
-    
-    public static char hasDecimals(Scanner scnr){
-        char hasDecimal;
-        do{
-         for (int i=0 ;i < 3; ++i ){
-                System.out.println();
-                }
-                System.out.println("Would you like you whole number or decimals?");
-                System.out.println("Please enter W for whole numbers, D for decimals, and Q to Quit.");
-                hasDecimal = Character.toUpperCase(scnr.next().charAt(0));
-                if ((hasDecimal!= 'W') && (hasDecimal != 'D') && (hasDecimal != 'Q')){
-                    System.out.println("Please enter Q, W, or D");
-                }
-        }while ((hasDecimal!= 'W') && (hasDecimal != 'D') && (hasDecimal != 'Q'));        
-        return hasDecimal;
-    }
-    public static int difficultyLevel(Scanner scnr){
-        int usersChoice;
-        do{ 
-            for (int i=0 ;i < 5; ++i ){
-                System.out.println();
-            }
-       
-            System.out.println("Pick the dificulty level you would like");
-            System.out.println("\t\t Options");
-            System.out.println("1. Easy");
-            System.out.println("2. Medium");
-            System.out.println("3. Hard");
-            System.out.println("4. Users own numbers");
-            System.out.println("5. Return to the previous menu");
-            System.out.print("Enter the number that corresponds with your choice:  ");
-            usersChoice = scnr.nextInt();
-            if ((usersChoice != 1)||(usersChoice != 2)||(usersChoice != 3)||(usersChoice != 4)||(usersChoice != 5)){
-                System.out.println("Please enter an number that is 1-5");
-            }
-        }while ((usersChoice != 1) && (usersChoice != 2) && (usersChoice != 3) && (usersChoice != 4) && (usersChoice != 5));
- 
-        return usersChoice;
-    }
-        
-    public static void addOption(int [] correctAnswers, Scanner scnr, Random randG){
-        int numOne;
-        int numTwo;
-        double numDOne;
-        double numDTwo;
-        double userAmountD;
-        double correctAmountD;
-        
-        int difficulty = difficultyLevel(scnr);
-        char hasDecimal = hasDecimals(scnr);
-        if((difficulty == 1) && (hasDecimal == 'W')){
-            numOne = easyRandomNum(randG);
-            numTwo = easyRandomNum(randG);
-            for (int i=0 ;i < 3; ++i ){
-                System.out.println();
-            }
-            System.out.println("Problem");
-            System.out.print(numOne + " + " + numTwo + "=   ");
-            int userAmount = scnr.nextInt();
-            int correctAmount = numOne + numTwo;
-            if (userAmount == correctAmount){
-                System.out.println();
-                System.out.println("You are correct!");
-                correctAnswers[0]= correctAnswers[0]+1;
-                correctAnswers[1]= correctAnswers[1]+1;
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-            else{
-                System.out.println();
-                System.out.println("The correct answer is "+ correctAmount);
-                correctAnswers[1]= correctAnswers[1]+1;
-                
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }           
-        }
-        else if((difficulty == 1) && (hasDecimal == 'D')){
-            numDOne = easyRandomNumD(randG);
-            numDTwo = easyRandomNumD(randG);
-            for (int i=0 ;i < 3; ++i ){
-                System.out.println();
-            }
-            System.out.println("Problem");
-            System.out.print(numDOne + " + " + numDTwo + "=   ");
-            userAmountD = scnr.nextFloat();
-            correctAmountD = numDOne + numDTwo;
-            if (userAmountD == correctAmountD){
-                System.out.println("You are correct!");
-                correctAnswers[0]= correctAnswers[0]+1;
-                correctAnswers[1]= correctAnswers[1]+1;
-                        
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-            else {
-                System.out.println("The correct answer is "+ correctAmountD);
-                correctAnswers[1]= correctAnswers[1]+1;
-                        
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-           
-        }
-        else if((difficulty == 2) && (hasDecimal == 'W')){
-            numOne = medRandomNum(randG);
-            numTwo = medRandomNum(randG);
-            for (int i=0 ;i < 3; ++i ){
-                System.out.println();
-            }
-            System.out.println("Problem");
-            System.out.print(numOne + " + " + numTwo + "=   ");
-            int userAmount = scnr.nextInt();
-            int correctAmount = numOne + numTwo;
-            if (userAmount == correctAmount){
-                System.out.println("You are correct!");
-                correctAnswers[0]= correctAnswers[0]+1;
-                correctAnswers[1]= correctAnswers[1]+1;
-                        
-                for (int i=0 ;i < 3; ++i ){
-                System.out.println();
-                }
-            }
-            else {
-                System.out.println("The correct answer is "+ correctAmount);
-                correctAnswers[1]= correctAnswers[1]+1;
-                        
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-        }
-        else if((difficulty == 2) && (hasDecimal == 'D')){
-            numDOne = medRandomNumD(randG);
-            numDTwo = medRandomNumD(randG);
-            
-            for (int i=0 ;i < 3; ++i ){
-                System.out.println();
-            }
-            
-            System.out.println("Problem");
-            System.out.print(numDOne + " + " + numDTwo + "=   ");
-            userAmountD = scnr.nextFloat();
-            correctAmountD = numDOne + numDTwo;
-            if (userAmountD == correctAmountD){
-                System.out.println("You are correct!");
-                correctAnswers[0]= correctAnswers[0]+1;
-                correctAnswers[1]= correctAnswers[1]+1;
-                        
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-            else{
-                System.out.println("The correct answer is "+ correctAmountD);
-                correctAnswers[1]= correctAnswers[1]+1;
-                        
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-        }
-        else if((difficulty == 3) && (hasDecimal == 'W')){
-            numOne = hardRandomNum(randG);
-            numTwo = hardRandomNum(randG);
-            
-            for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-            }
-            
-            System.out.println("Problem");
-            System.out.print(numOne + " + " + numTwo + "=   ");
-            int userAmount = scnr.nextInt();
-            int correctAmount = numOne + numTwo;
-            if (userAmount == correctAmount){
-                System.out.println("You are correct!");
-                correctAnswers[0]= correctAnswers[0]+1;
-                correctAnswers[1]= correctAnswers[1]+1;
-                        
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-            else {
-                System.out.println("The correct answer is "+ correctAmount);
-                correctAnswers[1]= correctAnswers[1]+1;
-                        
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-        }
-        else if((difficulty == 3) && (hasDecimal == 'D')){
-            numDOne = hardRandomNumD(randG);
-            numDTwo = hardRandomNumD(randG);
-            
-            System.out.println("Problem");
-            System.out.print(numDOne + " + " + numDTwo + "=   ");
-            userAmountD = scnr.nextFloat();
-            correctAmountD = numDOne + numDTwo;
-            if (userAmountD == correctAmountD){
-                System.out.println("You are correct!");
-                correctAnswers[0]= correctAnswers[0]+1;
-                correctAnswers[1]= correctAnswers[1]+1;
-                        
-                for (int i=0 ;i < 5; ++i ){
-                    System.out.println();
-                }
-            }
-            else {
-                System.out.println("The correct answer is "+ correctAmountD);
-                correctAnswers[1]= correctAnswers[1]+1;
-                        
-                for (int i=0 ;i < 5; ++i ){
-                    System.out.println();
-                }
-            }
-        }
-        else if((difficulty == 4) && (hasDecimal == 'W')){
-            for (int i=0 ;i < 3; ++i ){
-                System.out.println();
-            }
-            System.out.print("Please enter your first whole number to add:  ");
-            numOne = scnr.nextInt();
-            System.out.println();
-            System.out.print("Please enter your second whole number to add:  ");
-            numTwo = scnr.nextInt();
-            System.out.println();
-            System.out.println("Problem");
-            System.out.print(numOne + " + " + numTwo + "=   ");
-            int userAmount = scnr.nextInt();
-            int correctAmount = numOne + numTwo;
-            if (userAmount == correctAmount){
-                System.out.println("You are correct!");
-                correctAnswers[0]= correctAnswers[0]+1;
-                correctAnswers[1]= correctAnswers[1]+1;
-                            
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-            else {
-                System.out.println("The correct answer is "+ correctAmount);
-                correctAnswers[1]= correctAnswers[1]+1;
-                            
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-        }
-        else if((difficulty == 4) && (hasDecimal == 'D')){
-            for (int i=0 ;i < 3; ++i ){
-                System.out.println();
-            }
-            System.out.print("Please enter your first number to add:  ");
-            numDOne = scnr.nextFloat();
-            System.out.println();
-            System.out.print("Please enter your second number to add:  ");
-            numDTwo = scnr.nextFloat();
-            System.out.println();
-            System.out.println("Problem");
-            System.out.print(numDOne + " + " + numDTwo + "=   ");
-            userAmountD = scnr.nextFloat();
-            correctAmountD = numDOne + numDTwo;
-            if (userAmountD == correctAmountD){
-                System.out.println("You are correct!");
-                correctAnswers[0]= correctAnswers[0]+1;
-                correctAnswers[1]= correctAnswers[1]+1;
-                            
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-            else {
-                System.out.println("The correct answer is "+ correctAmountD);
-                correctAnswers[1]= correctAnswers[1]+1;
-                            
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-        }
-        else{
-            
-            for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-            }
-            
-            System.out.println("Returning to the Main menu");
-            
-            for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-            }
-                    
-        }
-    }
-    public static void subtractOption(int [] correctAnswers, Scanner scnr, Random randG){    
-        int numOne;
-        int numTwo;
-        double numDOne;
-        double numDTwo;
-        double userAmountD;
-        double correctAmountD;
-        
-        int difficulty = difficultyLevel(scnr);
-        char hasDecimal = hasDecimals(scnr);
-        if((difficulty == 1) && (hasDecimal == 'W')){
-            numOne = easyRandomNum(randG);
-            numTwo = easyRandomNum(randG);
-            for (int i=0 ;i < 3; ++i ){
-                System.out.println();
-            }
-            System.out.println("Problem");
-            System.out.print(numOne + " - " + numTwo + "=   ");
-            int userAmount = scnr.nextInt();
-            int correctAmount = numOne - numTwo;
-            if (userAmount == correctAmount){
-                System.out.println();
-                System.out.println("You are correct!");
-                correctAnswers[0]= correctAnswers[0]+1;
-                correctAnswers[1]= correctAnswers[1]+1;
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-            else{
-                System.out.println();
-                System.out.println("The correct answer is "+ correctAmount);
-                correctAnswers[1]= correctAnswers[1]+1;
-                
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }           
-        }
-        else if((difficulty == 1) && (hasDecimal == 'D')){
-            numDOne = easyRandomNumD(randG);
-            numDTwo = easyRandomNumD(randG);
-            for (int i=0 ;i < 3; ++i ){
-                System.out.println();
-            }
-            System.out.println("Problem");
-            System.out.print(numDOne + " - " + numDTwo + "=   ");
-            userAmountD = scnr.nextFloat();
-            correctAmountD = numDOne - numDTwo;
-            if (userAmountD == correctAmountD){
-                System.out.println("You are correct!");
-                correctAnswers[0]= correctAnswers[0]+1;
-                correctAnswers[1]= correctAnswers[1]+1;
-                        
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-            else {
-                System.out.println("The correct answer is "+ correctAmountD);
-                correctAnswers[1]= correctAnswers[1]+1;
-                        
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-           
-        }
-        else if((difficulty == 2) && (hasDecimal == 'W')){
-            numOne = medRandomNum(randG);
-            numTwo = medRandomNum(randG);
-            for (int i=0 ;i < 3; ++i ){
-                System.out.println();
-            }
-            System.out.println("Problem");
-            System.out.print(numOne + " - " + numTwo + "=   ");
-            int userAmount = scnr.nextInt();
-            int correctAmount = numOne - numTwo;
-            if (userAmount == correctAmount){
-                System.out.println("You are correct!");
-                correctAnswers[0]= correctAnswers[0]+1;
-                correctAnswers[1]= correctAnswers[1]+1;
-                        
-                for (int i=0 ;i < 3; ++i ){
-                System.out.println();
-                }
-            }
-            else {
-                System.out.println("The correct answer is "+ correctAmount);
-                correctAnswers[1]= correctAnswers[1]+1;
-                        
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-        }
-        else if((difficulty == 2) && (hasDecimal == 'D')){
-            numDOne = medRandomNumD(randG);
-            numDTwo = medRandomNumD(randG);
-            
-            for (int i=0 ;i < 3; ++i ){
-                System.out.println();
-            }
-            
-            System.out.println("Problem");
-            System.out.print(numDOne + " - " + numDTwo + "=   ");
-            userAmountD = scnr.nextFloat();
-            correctAmountD = numDOne - numDTwo;
-            if (userAmountD == correctAmountD){
-                System.out.println("You are correct!");
-                correctAnswers[0]= correctAnswers[0]+1;
-                correctAnswers[1]= correctAnswers[1]+1;
-                        
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-            else{
-                System.out.println("The correct answer is "+ correctAmountD);
-                correctAnswers[1]= correctAnswers[1]+1;
-                        
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-        }
-        else if((difficulty == 3) && (hasDecimal == 'W')){
-            numOne = hardRandomNum(randG);
-            numTwo = hardRandomNum(randG);
-            
-            for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-            }
-            
-            System.out.println("Problem");
-            System.out.print(numOne + " - " + numTwo + "=   ");
-            int userAmount = scnr.nextInt();
-            int correctAmount = numOne - numTwo;
-            if (userAmount == correctAmount){
-                System.out.println("You are correct!");
-                correctAnswers[0]= correctAnswers[0]+1;
-                correctAnswers[1]= correctAnswers[1]+1;
-                        
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-            else {
-                System.out.println("The correct answer is "+ correctAmount);
-                correctAnswers[1]= correctAnswers[1]+1;
-                        
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-        }
-        else if((difficulty == 3) && (hasDecimal == 'D')){
-            numDOne = hardRandomNumD(randG);
-            numDTwo = hardRandomNumD(randG);
-            
-            System.out.println("Problem");
-            System.out.print(numDOne + " - " + numDTwo + "=   ");
-            userAmountD = scnr.nextFloat();
-            correctAmountD = numDOne - numDTwo;
-            if (userAmountD == correctAmountD){
-                System.out.println("You are correct!");
-                correctAnswers[0]= correctAnswers[0]+1;
-                correctAnswers[1]= correctAnswers[1]+1;
-                        
-                for (int i=0 ;i < 5; ++i ){
-                    System.out.println();
-                }
-            }
-            else {
-                System.out.println("The correct answer is "+ correctAmountD);
-                correctAnswers[1]= correctAnswers[1]+1;
-                        
-                for (int i=0 ;i < 5; ++i ){
-                    System.out.println();
-                }
-            }
-        }
-        else if((difficulty == 4) && (hasDecimal == 'W')){
-            for (int i=0 ;i < 3; ++i ){
-                System.out.println();
-            }
-            System.out.print("Please enter your first whole number to add:  ");
-            numOne = scnr.nextInt();
-            System.out.println();
-            System.out.print("Please enter your second whole number to add:  ");
-            numTwo = scnr.nextInt();
-            System.out.println();
-            System.out.println("Problem");
-            System.out.print(numOne + " - " + numTwo + "=   ");
-            int userAmount = scnr.nextInt();
-            int correctAmount = numOne - numTwo;
-            if (userAmount == correctAmount){
-                System.out.println("You are correct!");
-                correctAnswers[0]= correctAnswers[0]+1;
-                correctAnswers[1]= correctAnswers[1]+1;
-                            
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-            else {
-                System.out.println("The correct answer is "+ correctAmount);
-                correctAnswers[1]= correctAnswers[1]+1;
-                            
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-        }
-        else if((difficulty == 4) && (hasDecimal == 'D')){
-            for (int i=0 ;i < 3; ++i ){
-                System.out.println();
-            }
-            System.out.print("Please enter your first number to add:  ");
-            numDOne = scnr.nextFloat();
-            System.out.println();
-            System.out.print("Please enter your second number to add:  ");
-            numDTwo = scnr.nextFloat();
-            System.out.println();
-            System.out.println("Problem");
-            System.out.print(numDOne + " - " + numDTwo + "=   ");
-            userAmountD = scnr.nextFloat();
-            correctAmountD = numDOne - numDTwo;
-            if (userAmountD == correctAmountD){
-                System.out.println("You are correct!");
-                correctAnswers[0]= correctAnswers[0]+1;
-                correctAnswers[1]= correctAnswers[1]+1;
-                            
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-            else {
-                System.out.println("The correct answer is "+ correctAmountD);
-                correctAnswers[1]= correctAnswers[1]+1;
-                            
-                for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-                }
-            }
-        }
-        else{
-            
-            for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-            }
-            
-            System.out.println("Returning to the Main menu");
-            
-            for (int i=0 ;i < 3; ++i ){
-                    System.out.println();
-            }
-                    
-        }
-    }
-    public static void multiplyOption(int [] correctAnswers, Scanner scnr, Random randG){    //FIXME
-        System.out.println("FIXME: multiply");
-    }
-    public static void divideOption(int [] correctAnswers, Scanner scnr, Random randG){     //FIXME
-        System.out.println("FIXME: divide");
-    }
-    public static int easyRandomNum(Random randG){          
-        int easyint = randG.nextInt(10);
-        return easyint;
-    }
-    public static int medRandomNum(Random randG){           
-        int medint = randG.nextInt(100);
-        return medint;
-    }
-    public static int hardRandomNum(Random randG){          
-        int hardint = randG.nextInt(1000);
-        randG.nextInt();
-        return hardint;
-    }
-    public static double easyRandomNumD(Random randG){ 
-        double easyDob = randG.nextDouble();
-        double roundedFloat = Math.round(easyDob * 10.0) / 10.0;
-        return roundedFloat;
-    }
-    public static double medRandomNumD(Random randG){ 
-        double medDob = randG.nextDouble();
-        double roundedFloat = Math.round(medDob * 100.0) / 100.0;
-        return roundedFloat;
-    }
-    public static double hardRandomNumD(Random randG){ 
-        Double hardDouble = randG.nextDouble();
-        double roundedFloat = Math.round(hardDouble * 1000.0) / 1000.0;
-        return roundedFloat;
-    }
+
+	public static int difficultyLevel(Scanner scnr) {
+		int usersChoice;
+		do {
+			for (int i = 0; i < 5; ++i) {
+				System.out.println();
+			}
+
+			System.out.println("Pick the dificulty level you would like");
+			System.out.println("\t\t Options");
+			System.out.println("1. Easy");
+			System.out.println("2. Medium");
+			System.out.println("3. Hard");
+			System.out.println("4. Users own numbers");
+			System.out.println("5. Return to the previous menu");
+			System.out.print("Enter the number that corresponds with your choice:  ");
+			usersChoice = scnr.nextInt();
+			if ((usersChoice != 1) || (usersChoice != 2) || (usersChoice != 3) || (usersChoice != 4)
+					|| (usersChoice != 5)) {
+				System.out.println("Please enter an number that is 1-5");
+			}
+		} while ((usersChoice != 1) && (usersChoice != 2) && (usersChoice != 3) && (usersChoice != 4)
+				&& (usersChoice != 5));
+
+		return usersChoice;
+	}
+
+	public static void addOption(int[] correctAnswers, Scanner scnr, Random randG) {
+		int numOne;
+		int numTwo;
+		int difficulty = difficultyLevel(scnr);
+		if (difficulty == 1) {
+			numOne = easyRandomNum(randG);
+			numTwo = easyRandomNum(randG);
+			for (int i = 0; i < 3; ++i) {
+				System.out.println();
+			}
+			System.out.println("Problem");
+			System.out.print(numOne + " + " + numTwo + "=   ");
+			int userAmount = scnr.nextInt();
+			int correctAmount = numOne + numTwo;
+			if (userAmount == correctAmount) {
+				System.out.println();
+				System.out.println("You are correct!");
+				correctAnswers[0] = correctAnswers[0] + 1;
+				correctAnswers[1] = correctAnswers[1] + 1;
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			} else {
+				System.out.println();
+				System.out.println("The correct answer is " + correctAmount);
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			}
+		}
+
+		else if (difficulty == 2) {
+			numOne = medRandomNum(randG);
+			numTwo = medRandomNum(randG);
+			for (int i = 0; i < 3; ++i) {
+				System.out.println();
+			}
+			System.out.println("Problem");
+			System.out.print(numOne + " + " + numTwo + "=   ");
+			int userAmount = scnr.nextInt();
+			int correctAmount = numOne + numTwo;
+			if (userAmount == correctAmount) {
+				System.out.println("You are correct!");
+				correctAnswers[0] = correctAnswers[0] + 1;
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			} else {
+				System.out.println("The correct answer is " + correctAmount);
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			}
+		}
+
+		else if (difficulty == 3) {
+			numOne = hardRandomNum(randG);
+			numTwo = hardRandomNum(randG);
+
+			for (int i = 0; i < 3; ++i) {
+				System.out.println();
+			}
+
+			System.out.println("Problem");
+			System.out.print(numOne + " + " + numTwo + "=   ");
+			int userAmount = scnr.nextInt();
+			int correctAmount = numOne + numTwo;
+			if (userAmount == correctAmount) {
+				System.out.println("You are correct!");
+				correctAnswers[0] = correctAnswers[0] + 1;
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			} else {
+				System.out.println("The correct answer is " + correctAmount);
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			}
+		}
+
+		else if (difficulty == 4) {
+			for (int i = 0; i < 3; ++i) {
+				System.out.println();
+			}
+			System.out.print("Please enter your first whole number to add:  ");
+			numOne = scnr.nextInt();
+			System.out.println();
+			System.out.print("Please enter your second whole number to add:  ");
+			numTwo = scnr.nextInt();
+			System.out.println();
+			System.out.println("Problem");
+			System.out.print(numOne + " + " + numTwo + "=   ");
+			int userAmount = scnr.nextInt();
+			int correctAmount = numOne + numTwo;
+			if (userAmount == correctAmount) {
+				System.out.println("You are correct!");
+				correctAnswers[0] = correctAnswers[0] + 1;
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			} else {
+				System.out.println("The correct answer is " + correctAmount);
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			}
+		}
+
+	}
+
+	public static void subtractOption(int[] correctAnswers, Scanner scnr, Random randG) {
+		int numOne;
+		int numTwo;
+		int difficulty = difficultyLevel(scnr);
+		if (difficulty == 1) {
+			numOne = easyRandomNum(randG);
+			numTwo = easyRandomNum(randG);
+			for (int i = 0; i < 3; ++i) {
+				System.out.println();
+			}
+			System.out.println("Problem");
+			System.out.print(numOne + " - " + numTwo + "=   ");
+			int userAmount = scnr.nextInt();
+			int correctAmount = numOne - numTwo;
+			if (userAmount == correctAmount) {
+				System.out.println();
+				System.out.println("You are correct!");
+				correctAnswers[0] = correctAnswers[0] + 1;
+				correctAnswers[1] = correctAnswers[1] + 1;
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			} else {
+				System.out.println();
+				System.out.println("The correct answer is " + correctAmount);
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			}
+		}
+
+		else if (difficulty == 2) {
+			numOne = medRandomNum(randG);
+			numTwo = medRandomNum(randG);
+			for (int i = 0; i < 3; ++i) {
+				System.out.println();
+			}
+			System.out.println("Problem");
+			System.out.print(numOne + " - " + numTwo + "=   ");
+			int userAmount = scnr.nextInt();
+			int correctAmount = numOne - numTwo;
+			if (userAmount == correctAmount) {
+				System.out.println("You are correct!");
+				correctAnswers[0] = correctAnswers[0] + 1;
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			} else {
+				System.out.println("The correct answer is " + correctAmount);
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			}
+		}
+
+		else if (difficulty == 3) {
+			numOne = hardRandomNum(randG);
+			numTwo = hardRandomNum(randG);
+
+			for (int i = 0; i < 3; ++i) {
+				System.out.println();
+			}
+
+			System.out.println("Problem");
+			System.out.print(numOne + " - " + numTwo + "=   ");
+			int userAmount = scnr.nextInt();
+			int correctAmount = numOne - numTwo;
+			if (userAmount == correctAmount) {
+				System.out.println("You are correct!");
+				correctAnswers[0] = correctAnswers[0] + 1;
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			} else {
+				System.out.println("The correct answer is " + correctAmount);
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			}
+		}
+
+		else if (difficulty == 4) {
+			for (int i = 0; i < 3; ++i) {
+				System.out.println();
+			}
+			System.out.print("Please enter your first whole number to add:  ");
+			numOne = scnr.nextInt();
+			System.out.println();
+			System.out.print("Please enter your second whole number to add:  ");
+			numTwo = scnr.nextInt();
+			System.out.println();
+			System.out.println("Problem");
+			System.out.print(numOne + " - " + numTwo + "=   ");
+			int userAmount = scnr.nextInt();
+			int correctAmount = numOne - numTwo;
+			if (userAmount == correctAmount) {
+				System.out.println("You are correct!");
+				correctAnswers[0] = correctAnswers[0] + 1;
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			} else {
+				System.out.println("The correct answer is " + correctAmount);
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			}
+		}
+
+	}
+
+	public static void multiplyOption(int[] correctAnswers, Scanner scnr, Random randG) {
+		int numOne;
+		int numTwo;
+		int difficulty = difficultyLevel(scnr);
+		if (difficulty == 1) {
+			numOne = easyRandomNum(randG);
+			numTwo = easyRandomNum(randG);
+			for (int i = 0; i < 3; ++i) {
+				System.out.println();
+			}
+			System.out.println("Problem");
+			System.out.print(numOne + " * " + numTwo + "=   ");
+			int userAmount = scnr.nextInt();
+			int correctAmount = numOne * numTwo;
+			if (userAmount == correctAmount) {
+				System.out.println();
+				System.out.println("You are correct!");
+				correctAnswers[0] = correctAnswers[0] + 1;
+				correctAnswers[1] = correctAnswers[1] + 1;
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			} else {
+				System.out.println();
+				System.out.println("The correct answer is " + correctAmount);
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			}
+		}
+
+		else if (difficulty == 2) {
+			numOne = medRandomNum(randG);
+			numTwo = medRandomNum(randG);
+			for (int i = 0; i < 3; ++i) {
+				System.out.println();
+			}
+			System.out.println("Problem");
+			System.out.print(numOne + " * " + numTwo + "=   ");
+			int userAmount = scnr.nextInt();
+			int correctAmount = numOne * numTwo;
+			if (userAmount == correctAmount) {
+				System.out.println("You are correct!");
+				correctAnswers[0] = correctAnswers[0] + 1;
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			} else {
+				System.out.println("The correct answer is " + correctAmount);
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			}
+		}
+
+		else if (difficulty == 3) {
+			numOne = hardRandomNum(randG);
+			numTwo = hardRandomNum(randG);
+
+			for (int i = 0; i < 3; ++i) {
+				System.out.println();
+			}
+
+			System.out.println("Problem");
+			System.out.print(numOne + " * " + numTwo + "=   ");
+			int userAmount = scnr.nextInt();
+			int correctAmount = numOne * numTwo;
+			if (userAmount == correctAmount) {
+				System.out.println("You are correct!");
+				correctAnswers[0] = correctAnswers[0] + 1;
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			} else {
+				System.out.println("The correct answer is " + correctAmount);
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			}
+		}
+
+		else if (difficulty == 4) {
+			for (int i = 0; i < 3; ++i) {
+				System.out.println();
+			}
+			System.out.print("Please enter your first whole number to add:  ");
+			numOne = scnr.nextInt();
+			System.out.println();
+			System.out.print("Please enter your second whole number to add:  ");
+			numTwo = scnr.nextInt();
+			System.out.println();
+			System.out.println("Problem");
+			System.out.print(numOne + " x " + numTwo + "=   ");
+			int userAmount = scnr.nextInt();
+			int correctAmount = numOne * numTwo;
+			if (userAmount == correctAmount) {
+				System.out.println("You are correct!");
+				correctAnswers[0] = correctAnswers[0] + 1;
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			} else {
+				System.out.println("The correct answer is " + correctAmount);
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			}
+		}
+
+	}
+
+	public static void divideOption(int[] correctAnswers, Scanner scnr, Random randG) { // FIXME "NEED TO ADD DIVID BY
+																						// ZERO"
+		int numOne;
+		int numTwo;
+		int userAmountD;
+		int correctAmountD;
+
+		int difficulty = difficultyLevel(scnr);
+		if (difficulty == 1) {
+			numOne = easyRandomNum(randG);
+			numTwo = easyRandomNum(randG);
+			for (int i = 0; i < 3; ++i) {
+				System.out.println();
+			}
+			System.out.println("Problem");
+			System.out.print(numOne + " / " + numTwo + "=   ");
+			int userAmount = scnr.nextInt();
+			int correctAmount = numOne / numTwo;
+			if (userAmount == correctAmount) {
+				System.out.println();
+				System.out.println("You are correct!");
+				correctAnswers[0] = correctAnswers[0] + 1;
+				correctAnswers[1] = correctAnswers[1] + 1;
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			} else {
+				System.out.println();
+				System.out.println("The correct answer is " + correctAmount);
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			}
+		}
+
+		else if (difficulty == 2) {
+			numOne = medRandomNum(randG);
+			numTwo = medRandomNum(randG);
+			for (int i = 0; i < 3; ++i) {
+				System.out.println();
+			}
+			System.out.println("Problem");
+			System.out.print(numOne + " / " + numTwo + "=   ");
+			int userAmount = scnr.nextInt();
+			int correctAmount = numOne / numTwo;
+			if (userAmount == correctAmount) {
+				System.out.println("You are correct!");
+				correctAnswers[0] = correctAnswers[0] + 1;
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			} else {
+				System.out.println("The correct answer is " + correctAmount);
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			}
+		}
+
+		else if (difficulty == 3) {
+			numOne = hardRandomNum(randG);
+			numTwo = hardRandomNum(randG);
+
+			for (int i = 0; i < 3; ++i) {
+				System.out.println();
+			}
+
+			System.out.println("Problem");
+			System.out.print(numOne + " / " + numTwo + "=   ");
+			int userAmount = scnr.nextInt();
+			int correctAmount = numOne / numTwo;
+			if (userAmount == correctAmount) {
+				System.out.println("You are correct!");
+				correctAnswers[0] = correctAnswers[0] + 1;
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			} else {
+				System.out.println("The correct answer is " + correctAmount);
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			}
+		}
+
+		else if (difficulty == 4) {
+			for (int i = 0; i < 3; ++i) {
+				System.out.println();
+			}
+			System.out.print("Please enter your first whole number to add:  ");
+			numOne = scnr.nextInt();
+			System.out.println();
+			System.out.print("Please enter your second whole number to add:  ");
+			numTwo = scnr.nextInt();
+			System.out.println();
+			System.out.println("Problem");
+			System.out.print(numOne + " / " + numTwo + "=   ");
+			int userAmount = scnr.nextInt();
+			int correctAmount = numOne / numTwo;
+			if (userAmount == correctAmount) {
+				System.out.println("You are correct!");
+				correctAnswers[0] = correctAnswers[0] + 1;
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			} else {
+				System.out.println("The correct answer is " + correctAmount);
+				correctAnswers[1] = correctAnswers[1] + 1;
+
+				for (int i = 0; i < 3; ++i) {
+					System.out.println();
+				}
+			}
+		}
+
+	}
+
+	public static int easyRandomNum(Random randG) {
+		int easyint = randG.nextInt(10);
+		return easyint;
+	}
+
+	public static int medRandomNum(Random randG) {
+		int medint = randG.nextInt(100);
+		return medint;
+	}
+
+	public static int hardRandomNum(Random randG) {
+		int hardint = randG.nextInt(1000);
+		randG.nextInt();
+		return hardint;
+	}
+
 	public static void main(String[] args) {
-        Scanner scnr = new Scanner(System.in);
-        int usersChoice= 1;
-        int [] correctAnswers= new int[2];
-        Random rand = new Random();
-        
-        do { 
-            System.out.println("Welcome to the simple math Calulator");
-            System.out.println("\t\tMenu");
-            System.out.println("Please enter one of the menu options");
-            System.out.println("\tEnter 1 for Addition");
-            System.out.println("\tEnter 2 for Subtraction");
-            System.out.println("\tEnter 3 for Muliplaction");
-            System.out.println("\tEnter 4 for Division");
-            System.out.println("\tEnter 5 to quit");
-            System.out.print("Please enter here: ");
-            usersChoice = scnr.nextInt();
-            
-            switch(usersChoice){
-                case 1:
-                    addOption(correctAnswers, scnr, rand);
-                    break;
-                case 2:
-                    subtractOption(correctAnswers, scnr, rand);
-                    break;
-                case 3:
-                    multiplyOption(correctAnswers, scnr, rand);
-                    break;
-                case 4:
-                    divideOption(correctAnswers, scnr, rand);
-                    break;
-                case 5:
-                    break;
-                default:
-                    while ((usersChoice != 1) && (usersChoice!= 2 ) && (usersChoice != 3) && (usersChoice != 4) && (usersChoice != 5) ){
-                        System.out.print("Please enter a valid option of 1-5:   ");
-                        usersChoice = scnr.nextInt();
-                    }
-                    break;
-                    
-            }
-        }while ((usersChoice == 1) || (usersChoice == 2 )|| (usersChoice == 3) || (usersChoice == 4));
-    
-        for (int i=0 ;i < 5; ++i ){
-            System.out.println();
-        }       
-        System.out.println("You have chosen to leave the program.");
-        if (correctAnswers[1] > 0){
-        System.out.println("You answered " + correctAnswers[0] + " correct out of " + correctAnswers[1] +".");
-        double percentage = (correctAnswers[0]/(correctAnswers[1] * 1.0)) * 100 ;
-        System.out.print("Your percectage correct is ");
-        System.out.printf("%.2f", percentage);
-        System.out.println("%");
-        }
-        System.out.println("Good Bye.");
-    
-    }        
+		Scanner scnr = new Scanner(System.in);
+		int usersChoice = 1;
+		int[] correctAnswers = new int[2];
+		Random rand = new Random();
+
+		do {
+			System.out.println("Welcome to the simple math Calulator");
+			System.out.println("\t\tMenu");
+			System.out.println("Please enter one of the menu options");
+			System.out.println("\tEnter 1 for Addition");
+			System.out.println("\tEnter 2 for Subtraction");
+			System.out.println("\tEnter 3 for Muliplaction");
+			System.out.println("\tEnter 4 for Division");
+			System.out.println("\tEnter 5 to quit");
+			System.out.print("Please enter here: ");
+			usersChoice = scnr.nextInt();
+
+			switch (usersChoice) {
+			case 1:
+				addOption(correctAnswers, scnr, rand);
+				break;
+			case 2:
+				subtractOption(correctAnswers, scnr, rand);
+				break;
+			case 3:
+				multiplyOption(correctAnswers, scnr, rand);
+				break;
+			case 4:
+				divideOption(correctAnswers, scnr, rand);
+				break;
+			case 5:
+				break;
+			default:
+				while ((usersChoice != 1) && (usersChoice != 2) && (usersChoice != 3) && (usersChoice != 4)
+						&& (usersChoice != 5)) {
+					System.out.print("Please enter a valid option of 1-5:   ");
+					usersChoice = scnr.nextInt();
+				}
+				break;
+
+			}
+		} while ((usersChoice == 1) || (usersChoice == 2) || (usersChoice == 3) || (usersChoice == 4));
+
+		for (int i = 0; i < 5; ++i) {
+			System.out.println();
+		}
+		System.out.println("You have chosen to leave the program.");
+		if (correctAnswers[1] > 0) {
+			System.out.println("You answered " + correctAnswers[0] + " correct out of " + correctAnswers[1] + ".");
+			double percentage = (correctAnswers[0] / (correctAnswers[1] * 1.0)) * 100;
+			System.out.print("Your percectage correct is ");
+			System.out.printf("%.2f", percentage);
+			System.out.println("%");
+		}
+		System.out.println("Good Bye.");
+
+	}
 
 }
-
-

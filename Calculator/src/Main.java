@@ -408,6 +408,9 @@ public class Main {
 																						// ZERO"
 		int numOne;
 		int numTwo;
+		int userAmountD;
+		int correctAmountD;
+
 		int difficulty = difficultyLevel(scnr);
 		if (difficulty == 1) {
 			numOne = easyRandomNum(randG);

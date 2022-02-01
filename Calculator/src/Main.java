@@ -1,8 +1,7 @@
 
 import java.util.Scanner;
 public class Main {                   
-	
-// need to fix divide by zero 
+	 
 	
 	public static void main(String[] args) {
 		try (Scanner scnr = new Scanner(System.in)) {

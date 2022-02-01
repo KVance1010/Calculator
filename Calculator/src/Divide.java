@@ -110,6 +110,13 @@ public class Divide {
 			System.out.println();
 			System.out.print("Please enter your second whole number to divide:  ");
 			numTwo = scnr.nextInt();
+			if (numTwo == 0) {
+				while (numTwo == 0) {
+					System.out.println("Can not divide by zero.");
+					System.out.println("Please enter a number that is great than zero");
+					numTwo = scnr.nextInt();
+				}
+			}
 			System.out.println();
 			System.out.println("Problem");
 			System.out.print(numOne + " / " + numTwo + "=   ");

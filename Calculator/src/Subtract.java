@@ -5,7 +5,8 @@ public class Subtract {
 	}
 
 	Subtract(int[] correctAnswers) {
-    Scanner scnr = new Scanner(System.in);
+    @SuppressWarnings("resource")
+	Scanner scnr = new Scanner(System.in);
 	int numOne;
 	int numTwo;
 	RandomNum rNum = new RandomNum();

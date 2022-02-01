@@ -5,6 +5,7 @@ public class Multiply {
 	}
 
 	Multiply(int[] correctAnswers) {
+		@SuppressWarnings("resource")
 		Scanner scnr = new Scanner(System.in);
 		int numOne;
 		int numTwo;

@@ -1,11 +1,12 @@
 
 import java.util.Scanner;
 
-public class Divide {// ZERO"
+public class Divide {
 	Divide() {
 	}
 
 	Divide(int[] correctAnswers) {
+		@SuppressWarnings("resource")
 		Scanner scnr = new Scanner(System.in);
 		int numOne;
 		int numTwo;

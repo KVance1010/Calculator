@@ -1,12 +1,12 @@
 
 import java.util.Scanner;
+
 public class Add {
 	Add() {
 	}
 
-	 Add(int[] correctAnswers) {
-       @SuppressWarnings("resource")
-	Scanner scnr = new Scanner(System.in);
+	Add(int[] correctAnswers) {
+		Scanner scnr = new Scanner(System.in);
 		int numOne;
 		int numTwo;
 		RandomNum rNum = new RandomNum();
@@ -132,6 +132,6 @@ public class Add {
 				}
 			}
 		}
-
+		//scnr.close();
 	}
 }

@@ -4,7 +4,8 @@ public class Main {
 	 
 	
 	public static void main(String[] args) {
-		try (Scanner scnr = new Scanner(System.in)) {
+		    @SuppressWarnings("resource")
+			Scanner scnr = new Scanner(System.in);
 			int usersChoice = 1;
 			int[] correctAnswers = new int[2];
 
@@ -50,8 +51,9 @@ public class Main {
 				System.out.printf("%.2f", percentage);
 				System.out.println("%");
 			}
-		}
+		
 		System.out.println("Good Bye.");
+		//scnr.close();
 
 	}
 

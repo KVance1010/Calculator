@@ -7,6 +7,7 @@ public class Divide {
 
 	Divide(int[] correctAnswers) {
 		@SuppressWarnings("resource")
+
 		Scanner scnr = new Scanner(System.in);
 		int numOne;
 		int numTwo;
@@ -31,6 +32,7 @@ public class Divide {
 				correctAnswers[1] = correctAnswers[1] + 1;
 				for (int i = 0; i < 3; ++i) {
 					System.out.println();
+
 				}
 			} else {
 				System.out.println();
@@ -139,6 +141,8 @@ public class Divide {
 				}
 			}
 		}
+		
 
 	}
+
 }

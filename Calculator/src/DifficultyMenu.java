@@ -1,16 +1,17 @@
 import java.util.Scanner;
+
 public class DifficultyMenu {
 	private int usersChoice;
 	Scanner scnr = new Scanner(System.in);
-	
+
 	public int difficultyLevel() {
-		
+
 		do {
 			for (int i = 0; i < 5; ++i) {
 				System.out.println();
 			}
 
-			System.out.println("Pick the dificulty level you would like");
+			System.out.println("Pick the difficulty level you would like");
 			System.out.println("\t\t Options");
 			System.out.println("1. Easy");
 			System.out.println("2. Medium");
@@ -25,7 +26,8 @@ public class DifficultyMenu {
 			}
 		} while ((usersChoice != 1) && (usersChoice != 2) && (usersChoice != 3) && (usersChoice != 4)
 				&& (usersChoice != 5));
-
+		//if (usersChoice == 5) usersChoice = 6;
+			
 		return usersChoice;
 	}
 
